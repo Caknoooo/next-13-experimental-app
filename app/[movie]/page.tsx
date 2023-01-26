@@ -8,11 +8,10 @@ export async function generateStaticParams() {
   const res = await data.json();
   return res.results.map((movie:any) => ({
     movie: toString(movie.id),
-
   }))
 }
 
-export default async function MovieDetail({ params }) {
+export default async function MovieDetail({ params }: { params: any }) {
   const { movie } = params;
   const imagePath = "https://image.tmdb.org/t/p/original";
   const data = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.API_KEY}`);
