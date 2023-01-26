@@ -1,7 +1,14 @@
 import Link from "next/link"
 import Image from "next/image";
 
-export default function Movie({ title, id, poster_path, release_date }) {
+export type InputProps = {
+  title: string;
+  id: string;
+  poster_path: string;
+  release_date: string;
+}
+
+export default function Movie({ title, id, poster_path, release_date }: InputProps) {
   const imagePath = "https://image.tmdb.org/t/p/original";
 
   return (
